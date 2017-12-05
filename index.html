@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title> DOM Part3 </title>   
+  <script type="text/javascript" src="/A9/web3.js"></script>     
+         <script> 
+
+</script>
+
+
+    </head>
+
+        <body>
+            <span id = 'fun'>
+                <h3 id ='choose'> Create a list. </h3>
+                <h4>Add items to the list by entering text in the given area and clicking submit<h4>
+                <h4>Click on the list items to change thier color and type "Finished" when done adding items to the list.</h4>
+                    <ul id = 'candy'>
+                        
+                    </ul>    
+
+                <input id = 'checkInput' type="text"> <input id = 'checkInputButton' type = 'submit' value = 'Submit' >
+            </span>
+            
+                                <!-- remove event listener && add event listener -->
+                        <script> 
+                            function addNode() {
+                                var input = document.getElementById('checkInput');
+                                    
+                                if (input.value != 'Finished') {
+                                    var candyList = document.getElementById('candy');
+                                    var entry = document.createElement('li');
+                                    var addThis = input.value;
+                                    entry.appendChild(document.createTextNode(addThis));
+                                    candyList.appendChild(entry);
+                                    alert(entry.innerHTML + ' has been added to the list')
+                                }
+                                    else if (input.value == 'Finished') {
+                                        alert('Thank you for editing the list');
+                                    button.removeEventListener('click' , addNode);
+                                    }
+                            }
+                            var button = document.getElementById('checkInputButton');
+                            button.addEventListener('click' , addNode);
+                            
+                            </script>
+
+                        <!-- .style change color to red on click -->
+                        <script>
+                            var func = function(e) {
+                                if (e.target) {
+                                    
+                                    e.target.style.color = 'red';
+
+                                }
+                            };
+                            var x = document.getElementById('candy');
+                            x.addEventListener('click', func);
+                        
+                        </script>
+            
+                        
+                        <!-- preventDefault -->
+                        <script> 
+                        var func = function(e) {
+                            if (e.charCode > 48 && e.charCode < 57) {
+                                e.preventDefault();
+                                }
+                            };
+                            document.getElementById('checkInput').addEventListener('keypress', func, false);
+                            
+                        </script>
+           </body>
+</html>
